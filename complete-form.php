@@ -1,4 +1,4 @@
-<form method="POST" action="<?= $form->encode($_SERVER['PHP_SELF']) ?>">
+<form method="POST" action="<?= $form->encode($_SERVER['PHP_SELF']) ?>"></form>
 <table>
     <?php if ($errors) { ?>
         <tr>
@@ -12,10 +12,18 @@
 
     <tr><td>Your Name:</td><td><?= $form->input('text', ['name' => 'name']) ?></td></tr>
 
+    <tr>
+        <td>E-mail:</td><td><?= $form->input ('text',['name' => 'email']) ?></td>
+        </td>
+    </tr>
+
+
+
     <tr><td>Size:</td>
         <td><?= $form->input('radio',['name' => 'size', 'value' => 'small']) ?> Small <br/>
             <?= $form->input('radio',['name' => 'size', 'value' => 'medium']) ?> Medium <br/>
             <?= $form->input('radio',['name' => 'size', 'value' => 'large']) ?> Large <br/>
+            <?= $form->input('radio',['name' => 'size', 'value' => 'Xlarge']) ?> XLarge <br/>
         </td></tr>
 
     <tr><td>Pick one sweet item:</td>
@@ -26,6 +34,9 @@
         <td><?= $form->select($GLOBALS['main_dishes'], ['name' => 'main_dish',
                                                         'multiple' => true]) ?></td>
     </tr>
+    <tr><td>Pick one main drink:</td>
+        <td><?= $form->select($GLOBALS['drinks'], ['name' => 'drink']) ?></td>
+    </tr>
 
     <tr><td>Do you want your order delivered?</td>
         <td><?= $form->input('checkbox',['name' => 'delivery', 'value' => 'yes']) ?> Yes
@@ -35,8 +46,10 @@
         If you want your order delivered, put your address here:</td>
         <td><?= $form->textarea(['name' => 'comments']) ?></td></tr>
 
-    <tr><td colspan="2" align="center"><?= $form->input('submit', ['value' => 'Order']) ?>
-    </td></tr>
+    <tr><td colspan="1" align="center"><?= $form->input('submit', ['value' => 'Order']) ?>
+            <?= $form->input('reset', ['value' => 'reset']) ?>
+        </td>
+    </tr>
 
 </table>
 </form>

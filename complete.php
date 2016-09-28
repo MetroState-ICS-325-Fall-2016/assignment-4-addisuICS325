@@ -10,14 +10,22 @@ require 'FormHelper.php';
 $sweets = array('puff' => 'Sesame Seed Puff',
                 'square' => 'Coconut Milk Gelatin Square',
                 'cake' => 'Brown Sugar Cake',
-                'ricemeat' => 'Sweet Rice and Meat');
+                'ricemeat' => 'Sweet Rice and Meat',
+                'Ice Cream' => 'Mint Chocolate Chip');
 
 $main_dishes = array('cuke' => 'Braised Sea Cucumber',
                      'stomach' => "Sauteed Pig's Stomach",
                      'tripe' => 'Sauteed Tripe with Wine Sauce',
                      'taro' => 'Stewed Pork with Taro',
                      'giblets' => 'Baked Giblets with Salt',
-                     'abalone' => 'Abalone with Marrow and Duck Feet');
+                     'abalone' => 'Abalone with Marrow and Duck Feet',
+                     'Cheese Pizza' => 'Pepperoni deep cheese Pizza');
+$drinks = array('Ccoke' => 'ice coke coal',
+                'Diet Coke' => 'ice diet coke',
+                'Sprite' => 'ice sprite ',
+                 'mike' => '2 % mike',
+                 'water' => 'spring water');
+
 
 // The main page logic:
 // - If the form is submitted, validate and then process or redisplay
@@ -38,7 +46,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
 
 function show_form($errors = array()) {
     $defaults = array('delivery' => 'yes',
-                      'size'     => 'medium');
+                      'size'     => 'large');
     // Set up the $form object with proper defaults
     $form = new FormHelper($defaults);
 
@@ -140,3 +148,12 @@ _ORDER_;
     print str_replace('&NewLine;', "<br />\n", htmlentities($message, ENT_HTML5));
 }
 
+    if (isset($_POST["email"])) {
+             if (!filter_input(INPUT_GET, "email", FILTER_VALIDATE_EMAIL) === false) {
+         echo("Email is valid");
+    }
+            else {
+            echo("Email is not valid");
+                //if(isset($_POST['email']) && (filter_var($_POST['email'], FILTER_VALIDATE_EMAIL)))
+    }
+}

@@ -134,6 +134,7 @@ class FormHelper {
         else {
             return $value == $this->values[$name];
         }
+
     }
 
     public function encode($s) {
