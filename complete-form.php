@@ -1,4 +1,4 @@
-<form method="POST" action="<?= $form->encode($_SERVER['PHP_SELF']) ?>"></form>
+<form method="POST" action="<?= $form->encode($_SERVER['PHP_SELF']) ?>">
 <table>
     <?php if ($errors) { ?>
         <tr>
